@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, /*useContext*/} from 'react'
+// import {CartContext} from '../App'
 import axios from 'axios'
 
 import './Drinks.css'
@@ -8,6 +9,7 @@ const baseURL = 'http://localhost:3003'
 
 function Drinks() {
   const [drinks, setDrinks] = useState([])
+  // const [cart, setCart] = useContext(CartContext)
 
   useEffect(() => {
     axios.get(`${baseURL}/menu`)
