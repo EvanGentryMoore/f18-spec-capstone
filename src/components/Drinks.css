@@ -1,0 +1,32 @@
+.menu-title-drinks {
+  text-align: center;
+}
+
+.drinks-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  list-style: none;
+  list-style-type: none;
+  padding: 0px;
+  /* background-color: black;   */
+}
+
+.drink-details {
+  display: flex;
+  justify-content: right;
+  padding: 10px 20px 10px 0px;
+  margin: 10px 0px 10px 0px;
+  background-color: lightblue;
+  border-left: 10px solid blue;
+}
+
+.drink-name {
+  /* width: 200px; */
+  padding: 0px 20px 0px 10px;
+  text-align: right;
+  /* background-color: blueviolet; */
+}
+.drink-price {
+  padding-right: 20px;
+}

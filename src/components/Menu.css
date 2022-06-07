@@ -1,0 +1,5 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  width: calc((100vw / 3));
+}
