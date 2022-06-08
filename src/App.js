@@ -1,15 +1,16 @@
 import React, {useState, createContext} from 'react'
 import {Link, Outlet} from 'react-router-dom'
+import ItemInCart from './components/ItemInCart';
 import './App.css';
 
 const CartContext = createContext()
 const UserContext = createContext()
 
 function App() {
-  const [renderHome, setRenderHome] = useState(true)
   const [cart, setCart] = useState([])
   const [user, setUser] = useState('')
-
+  
+  const [renderHome, setRenderHome] = useState(true)
 
   return (
     <CartContext.Provider value={{ cart, setCart }}>
@@ -22,7 +23,7 @@ function App() {
             <Link to='/cart' className='nav-links'onClick={() => setRenderHome(false)}>Cart</Link>
           </nav>
         </header>
-        {renderHome ? <p>You're on the home page</p> : <Outlet />}
+        {renderHome ? <h1>Place Holder for Home Component</h1> : <Outlet />}
       </UserContext.Provider>
     </CartContext.Provider>
   )

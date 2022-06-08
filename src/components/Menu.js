@@ -1,13 +1,12 @@
 import React from 'react'
-
-import Drinks from './Drinks'
+import DrinksList from './DrinksList'
 
 import "./Menu.css"
 
 function Menu() {
   return (
     <div className='menu'>
-      <Drinks />
+      <DrinksList />
     </div>
   )
 }
