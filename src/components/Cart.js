@@ -3,11 +3,19 @@ import {CartContext} from '../App'
 import ItemInCart from './ItemInCart'
 
 function Cart() {
-  const {cart, setCart} = useContext(CartContext)
+  const {cart} = useContext(CartContext)
 
   return (
-    <div>Cart
-      <ItemInCart />
+    <div>
+      {cart.map((item, index) => {
+        return (
+          <ItemInCart
+            key={index}
+            id={item.item_id}
+            item={item}
+          />
+        )
+      })}
     </div>
   )
 }

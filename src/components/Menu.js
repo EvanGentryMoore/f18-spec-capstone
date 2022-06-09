@@ -1,12 +1,14 @@
 import React from 'react'
-import DrinksList from './DrinksList'
+import DrinkList from './DrinkList'
 
 import "./Menu.css"
 
 function Menu() {
   return (
     <div className='menu'>
-      <DrinksList />
+      <DrinkList />
+      {/* <EntreeList />
+      <SideList /> */}
     </div>
   )
 }

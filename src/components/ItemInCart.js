@@ -1,20 +1,23 @@
 import React from 'react'
-import './ItemInCart.css'
+// import {CartContext} from '../App'
+// import './ItemInCart.css'
 
-function ItemInCart() {
+function ItemInCart({id, item}) {
+  // const {cart, setCart} = useContext(CartContext)
+
   return (
     <div className='item-card'>
       <div className='item-title'>
-        <h3>item name</h3>
+        <p>{item.item_name}</p>
       </div>
       <div className='item-counter-container'>
         <div className='item-counter'>
-          <a className="button-down">-</a>
+          <button className="button-down">-</button>
           <span className='counter-display'>88</span>
-          <a className="button-up">+</a>
+          <button className="button-up">+</button>
         </div>
       </div>
-      <div>X     Unit Price = Total for item</div>
+      <div>X ${item.item_price} = Total for item</div>
       <button className="cart-remove">Remove from cart</button>
     </div>
   )
