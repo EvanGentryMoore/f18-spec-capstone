@@ -6,21 +6,21 @@ import './Lists.css'
 
 const baseURL = 'http://localhost:3003'
 
-function DrinkList() {
+function EntreeList() {
   const [listData, setListData] = useState([])
   
   useEffect(() => {
     axios.get(`${baseURL}/menu`)
     .then(res => {
       let menuData = res.data[0]
-      setListData(menuData.filter(element => element.item_type === "drink").sort((a, b) => a.item_id - b.item_id))
+      setListData(menuData.filter(element => element.item_type === "entree").sort((a, b) => a.item_id - b.item_id))
     })
     .catch(err => console.log(err))
   }, [])
   
   return (
     <div>
-      <h1 className="menu-title">Drinks</h1>
+      <h1 className="menu-title">Entrees</h1>
       {listData.map((item, index) => {
         return (
           <MenuItem
@@ -36,4 +36,4 @@ function DrinkList() {
 
 }
 
-export default DrinkList
+export default EntreeList

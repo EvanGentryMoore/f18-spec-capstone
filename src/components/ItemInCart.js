@@ -1,17 +1,23 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {CartContext} from '../App'
 import './ItemInCart.css'
 
 function ItemInCart({item}) {
   const {cart, setCart} = useContext(CartContext)
+  const [count, setCount] = useState(1)
 
-  const clicked = () => {
+  const removeItem = () => {
     setCart(() => {
-      let index = cart.indexOf(item)
-      cart.splice(index, 1)
-      return cart
+      let newRef = [...cart]
+      let index = newRef.indexOf(item)
+      newRef.splice(index, 1)
+      return newRef
     })
   }
+  const increase = () => (count >= 20) ? setCount(20) : setCount(count + 1)
+  const decrease = () => (count <= 1) ? setCount(1) : setCount(count - 1)
+
+  const math = count * item.item_price
 
   return (
     <div className='item-card'>
@@ -20,14 +26,13 @@ function ItemInCart({item}) {
       </div>
       <div className='item-counter-container'>
         <div className='item-counter'>
-          <button className="button-down">-</button>
-          <span className='counter-display'>88</span>
-          <button className="button-up">+</button>
+          <button onClick={decrease} className="button-down">-</button>
+          <span className='counter-display'>{count}</span>
+          <button onClick={increase} className="button-up">+</button>
         </div>
+        <div>X ${item.item_price} = ${math}</div>
       </div>
-      <div>X ${item.item_price} = Total for item</div>
-      <button className="cart-remove" onClick={clicked}>Remove from cart</button>
-      <button type="submit" onClick={() => console.log(cart)}>check cart</button>
+      <button className="cart-remove" onClick={removeItem}>Remove from cart</button>
     </div>
   )
 }

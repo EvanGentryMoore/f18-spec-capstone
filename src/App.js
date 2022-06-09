@@ -7,7 +7,7 @@ const CartContext = createContext()
 const ToggleContext = createContext()
 
 function App() {
-  const [renderHome, setRenderHome] = useState(true)
+  const [renderHome, setRenderHome] = useState(false)
   const [cart, setCart] = useState([])
   const [toggle, setToggle] = useState(false)
 
@@ -17,8 +17,8 @@ function App() {
       <header className="nav-bar">
         <Link to='/' className='nav-links' onClick={() => setRenderHome(true)}><h1>Site Logo</h1></Link>
         <nav className='nav-section'>
-          <Link to='/menu' className='nav-links'onClick={() => setRenderHome(false)}>Menu</Link>|
-          <Link to='/cart' className='nav-links'onClick={() => setRenderHome(false)}>Cart</Link>
+          <Link to='/menu' className='nav-links' onClick={() => setRenderHome(false)}>Menu</Link>|
+          <Link to='/cart' className='nav-links' onClick={() => setRenderHome(false)}>Cart</Link>
         </nav>
       </header>
       {renderHome ? <h1>Place Holder for Home Component</h1> : <Outlet />}
