@@ -4,17 +4,16 @@ import {Link, Outlet} from 'react-router-dom'
 import './App.css';
 
 const CartContext = createContext()
+const ToggleContext = createContext()
 
 function App() {
   const [renderHome, setRenderHome] = useState(true)
-  const [cart, setCart] = useState({
-    drinkCart: [], 
-    entreeCart: [],
-    sideCart: [] 
-})
+  const [cart, setCart] = useState([])
+  const [toggle, setToggle] = useState(false)
 
   return (
     <CartContext.Provider value={{ cart, setCart }}>
+    <ToggleContext.Provider value={{ toggle, setToggle }}>
       <header className="nav-bar">
         <Link to='/' className='nav-links' onClick={() => setRenderHome(true)}><h1>Site Logo</h1></Link>
         <nav className='nav-section'>
@@ -23,9 +22,10 @@ function App() {
         </nav>
       </header>
       {renderHome ? <h1>Place Holder for Home Component</h1> : <Outlet />}
+    </ToggleContext.Provider>
     </CartContext.Provider>
   )
 }
 
 export default App;
-export {CartContext}
+export {CartContext, ToggleContext}

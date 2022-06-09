@@ -1,9 +1,17 @@
-import React from 'react'
-// import {CartContext} from '../App'
-// import './ItemInCart.css'
+import React, {useContext} from 'react'
+import {CartContext} from '../App'
+import './ItemInCart.css'
 
-function ItemInCart({id, item}) {
-  // const {cart, setCart} = useContext(CartContext)
+function ItemInCart({item}) {
+  const {cart, setCart} = useContext(CartContext)
+
+  const clicked = () => {
+    setCart(() => {
+      let index = cart.indexOf(item)
+      cart.splice(index, 1)
+      return cart
+    })
+  }
 
   return (
     <div className='item-card'>
@@ -18,7 +26,8 @@ function ItemInCart({id, item}) {
         </div>
       </div>
       <div>X ${item.item_price} = Total for item</div>
-      <button className="cart-remove">Remove from cart</button>
+      <button className="cart-remove" onClick={clicked}>Remove from cart</button>
+      <button type="submit" onClick={() => console.log(cart)}>check cart</button>
     </div>
   )
 }
